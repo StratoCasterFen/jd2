@@ -20,5 +20,11 @@ md %repo%
 %git_cmd% clone --recursive %remoteRepo% %repo%
 cd %repo%
 %git_cmd% checkout develop
-pause
+cd %repo%
+
+set sqlPath="C:\Program Files\MySQL\MySQL Server 5.6\bin
+%sqlPath%\mysql.exe" -u root -pqwe321 policestation < "%repo%\src\main\resources\policest2.sql"
+
+mvn install
+java -jar %repo%\target\matsak-dao-1.0-SNAPSHOT.jar
 
